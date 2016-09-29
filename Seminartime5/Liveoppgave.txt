@@ -1,0 +1,15 @@
+Lag en klasse Flaske, som inneholder informasjon om følgende:
+
+Kapasitet i liter
+Hvor mye væske som er i flasken
+Hva slags væske som er i flasken
+Disse variablene må opprettes når flasken lages.
+
+Lag deretter metoder for å gjøre følgende:
+
+Fylle opp flasken med en væske. Merk at det ikke skal være mulig å blande forskjellige væsker. 
+Drikke antall dl fra flasken. Det skal ikke være mulig å drikke fra flasken om flasken er tom.
+Sjekke om flasken er tom. 
+En metode for å returnerer all informasjonen om flasken som en string. 
+
+Lag så tre flasker fra et hovedprogram, og test de med forskjellige metoder. Kall til slutt metoden som returnerer informasjon om flasken, og skriv ut dette.

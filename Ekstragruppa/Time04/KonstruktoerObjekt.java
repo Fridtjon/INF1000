@@ -13,6 +13,10 @@ class KonstruktoerObjekt{
 		kvadrat = (tall * tall);
 	}
 
+	public int hentKvadrat(){
+		return kvadrat;
+	}
+
 	public void skrivUt(){
 		System.out.println("Tallet: " + tall);
 		System.out.println("Verdi: " + verdi);

@@ -1,0 +1,25 @@
+I dag gikk vi gjennom følgende:
+
+- null
+Alle referanser/pekere i koden vår viser opprinnelig til null om ikke annet er blitt satt. Om prøver å kalle metoder på noe som er null får man en nullpointerexception.
+
+- Konstruktør
+Alle objekter kommer med en tom konstruktør i seg. Man kan overskrive konstruktøren.  
+
+- public String toString()
+Alle objekter kommer med en toString-metode i seg. Denne kan overskrives, og man kan dermed skrive ut objekter ved å skrive System.out.println(objektnavn);
+
+- ArrayList
+ArrayList er en dynamisk måte å sette ellementer i en liste. Merk at man ikke setter inn elementer på lik måte som i vanlige arrays.
+	Arraylist metoder:
+	- .add(objekt o)
+	- .add(objekt o,int indeks)
+	- .get(int indeks)
+	- .size()
+	- .remove(int indeks)
+
+
+Livekoding:
+Alle .java-filer i denne mappen. Dette er en kø hvor man kan sette inn og ta ut personer.
+
+ 

@@ -1,0 +1,8 @@
+Hei
+
+Jeg kan desverre ikke legge ut Person.java og TestPerson.java da de er for like som oblig 6. 
+Håper dere fikk et intrykk av hvordan obligen skal løses og at dere er godt på vei. 
+
+Om dere har noen spørsmål kan de sendes til meg på mail:
+
+fridtjon@student.matnat.uio.no

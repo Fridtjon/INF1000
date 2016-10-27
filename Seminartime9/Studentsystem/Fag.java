@@ -20,7 +20,7 @@ public class Fag{
 		if(finnesStudentFraFoer(s.toString())){
 			System.out.println("Studenten finnes allerede fra før.");
 		} else {
-			System.out.println("La til studenten " + s);
+			System.out.println("La til studenten " + s + " til " + emnekode);
 			studenter.put(s.toString(), s);
 		}
 	}

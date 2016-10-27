@@ -34,7 +34,6 @@ public class Student{
 		fagliste.remove(f.toString());
 	}
 
-
 	public void skrivUtMineFag(){
 		for(String s : fagliste.keySet()){
 			System.out.println(s);
@@ -55,3 +54,10 @@ public class Student{
 		return fagliste.size();
 	}
 }
+
+
+
+
+
+
+

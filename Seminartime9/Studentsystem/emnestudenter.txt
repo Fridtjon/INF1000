@@ -1,0 +1,26 @@
+*MAT1001
+Emilie
+Jonathan
+Henrik
+Mari
+Esben
+Gard
+Fritjof
+*MAT1100
+Mathias
+Ole Petter
+Elsie
+Andreas
+Martin
+*INF1060
+Joakim
+Lise
+Preben
+Torunn
+Jan
+*INF2220
+Jonathan
+Henrik
+Elsie
+Lise
+Jan

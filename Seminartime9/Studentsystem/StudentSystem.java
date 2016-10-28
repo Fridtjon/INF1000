@@ -38,15 +38,37 @@ public class StudentSystem{
 
 	public void hovedMeny(){
 		Scanner in = new Scanner(System.in);
-		while(true){
+		Boolean kjoer = true;
+		while(kjoer){
 			System.out.println("Meny: 0: LeggTilStudent, 1: leggTilFag");
-
-			int valg = Integer.parseInt(in.nextLine());
+			String linje = in.nextLine();
+			int valg = Integer.parseInt(linje);
 
 			if(valg == 0){
 				leggTilStudent();
-			} else if (valg == 1){
+			} 
+
+			else if (valg == 1){
 				System.out.println("Du valgte leggTilFag");
+			}
+			else if (valg == 2){
+				// Skrive kode inne i if-else
+				// Kalle på metoder <--- Lurest!
+			}
+
+			else if (valg == 9){
+				/* Avslutte med return:
+				return;
+				*/
+				/* Avslutte med break:
+				*/
+				//break;
+				/* Avslutte med å endre while-løkkens boolske uttrykk
+				kjoer = false; */
+
+				/* Avslutte med å avslutte programmet */
+				//System.exit(0);
+
 			}
 
 		}

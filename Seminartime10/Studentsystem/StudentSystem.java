@@ -8,7 +8,7 @@ public class StudentSystem{
 	private HashMap<String, Fag> alleFag = new HashMap<String,Fag>();
 
 	public void lesFil(String filnavn) throws Exception{
-		System.out.println("Filnavn = " + filnavn);
+		//System.out.println("Filnavn = " + filnavn);
 		File fil = new File(filnavn);
 		Scanner filleser = new Scanner(fil);
 
@@ -44,7 +44,8 @@ public class StudentSystem{
 		Boolean kjoer = true;
 		
 		while(kjoer){
-			System.out.println("Meny: 0: LeggTilStudent, 1: leggTilFag");
+			System.out.println("");
+			System.out.println("Meny: 0: LeggTilStudent, 1: leggTilFag, 2: skriv alle studenter, 3: skriv alle fag, 4: skriv alle fag til en student,");
 			String linje = in.nextLine();
 			int valg = Integer.parseInt(linje);
 
@@ -53,13 +54,17 @@ public class StudentSystem{
 			} 
 
 			else if (valg == 1){
-				//leggTilFag();
+				leggTilFag();
 				//System.out.println("Du valgte leggTilFag");
 			}
 			else if (valg == 2){
-				// Skrive kode inne i if-else
-				// Kalle på metoder <--- Lurest!
-			}
+				skrivAlleStudenter();
+			} else if (valg == 3){
+				skrivAlleFag();
+			} else if (valg == 4){
+				System.out.println("Hvilken student vil du ha fagene til?");
+				skrivStudentsFag(in.nextLine());
+			} 
 
 			else if (valg == 9){
 				/* Avslutte med return:

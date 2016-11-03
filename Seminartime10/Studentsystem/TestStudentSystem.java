@@ -12,6 +12,7 @@ class TestStudentSystem{
 		s.studentMedFlestFag();
 		System.out.println("\nINF1060s studenter:");
 		s.skrivFagsStudenter("INF1060");
+		
 	}
 
 	public static void testLeggTilStudent(StudentSystem s){

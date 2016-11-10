@@ -1,0 +1,223 @@
+Eksamen 2014
+
+a) 18
+
+Oppgave 4)
+
+int pris(boolean gratis, int alder){
+	if(gratis){
+		return 0;
+	}
+
+	if(alder < 18){
+		return 100;
+	}
+
+	return 200;
+}
+
+Oppgave 5)
+
+public boolean erSortert(int[] array){
+	if(array.length < 2){
+		return true;
+	}
+
+	for(int i = 1; i < array.length; i++){
+		if(array[i-1] > array[i]){
+			return false;
+		}
+	}
+	return true;
+
+}
+
+oppgave 6)
+
+public int erLike(int[] array){
+	int første = array[0];
+	for(int i = 1; i < array.length; i++){
+		if(array[i] != første){
+			return -1;
+		}
+	}
+	return første;
+
+}
+
+
+
+class Aktivitet{
+	private String hva;
+	private int kl;
+
+	Aktivitet(String hva, int kl){
+		this.hva = hva;
+		this.kl = kl;
+	}
+
+	public skrivUt(){
+		System.out.println("   Kl: " + kl + ": " + hva);
+	}
+
+}
+
+class Ukedag{
+	String dag;
+	Aktivitet[] aktiviterer = new Aktivitet[24];
+	
+	Ukedag(String dag){
+		this.dag = dag;
+	}
+
+	void settInn(String hva, int kl){
+		if(aktiviteter[kl] != null){
+			System.out.println("KLokkeslettet er opptat");
+		} else {
+			aktiviteter[kl] = new Aktivitet(hva, kl);
+		}
+	}
+
+	int tidligste(){
+		for(int i = 0; i < aktiviteter.length; i++){
+			if(aktiviteter[i] != null){
+				return i;
+			}
+		}
+		return -1;
+	} 
+
+	int senest(){
+		for(int i = aktiviterer.length-1; i >= 0; i--){
+			if(aktiviteter[i] != null){
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	int antall(){
+		int antall = 0;
+		for(int i = 0; i < aktiviterer.length; i ++){
+			if(aktiviteter[i] != null){
+				antall ++;
+			}
+		}
+		return antall;
+	}
+
+
+	void settInnLeding(String hva){
+		if(antall() == 24){
+			System.out.println("Denne dagen er full.");
+			return;
+		} 
+
+		if(antall() == 0){
+			settInn(hva, 12);
+			return;
+		}
+
+		for(int i = tidligste(); i < 24; i++){
+			if(aktiviteter[i] == null){
+				settInn(hva,i);
+				return;
+			}
+		}
+
+		settInn(hva, tidligste() - 1);
+
+	}
+
+	void skrivUt(){
+		System.out.println(dag);
+		for(int i = 0; i < aktiviteter.length; i++){
+			if(aktiviteter[i] != null){
+				aktiviteter[i].skrivUt();
+			}
+		}
+	}
+
+}
+class Ukeplan{
+	Ukedag[] ukedager = new Ukedag[7];
+	String hvem;
+
+	String[] forskjelligeDager = {"Mandag","Tirsdag","Onsdag", osv til søndag};
+
+	Ukeplan(String hvem){
+		this.hvem = hvem;
+		for(int i = 0; i < ukedager.length; i++){
+			ukedager[i] = new Ukedag(forskjelligeDager[i]);
+		}	
+	}
+
+	Ukedag travleste(){
+		Ukedag hoyeste = ukedager[0];
+		for(int i = 1; i < ukedager.length; i++){
+			if(hoyeste.antall() < ukedager[i].antall()){
+				hoyeste = ukedager[i];
+			}
+		}
+		return hoyeste;
+	}
+
+	void skrivUt(){
+		System.out.println("Ukeplan for " + hvem);
+		for(int i = 0; i < 7; i++){
+			if(ukedager[i].antall() != 0){
+				ukedager[i].skrivUt();
+			}
+		}
+
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

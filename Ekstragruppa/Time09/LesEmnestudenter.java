@@ -18,11 +18,10 @@ class LesEmnestudenter{
 		
 		while(filinput.hasNextLine()){
 		//	linje = filinput.nextLine(); // Fjerner -
-			
 			System.out.println("---BOLK---"); // Ny bolk
 			linje = filinput.nextLine(); // Få faget!
 			System.out.println(linje + " er et fag!");
-
+			 
 			while(filinput.hasNextLine() && !linje.equals("-")){
 				linje = filinput.nextLine(); // Student nr x
 				if(!linje.equals("-")){

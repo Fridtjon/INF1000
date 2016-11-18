@@ -1,0 +1,79 @@
+
+class Aktivitet{
+	private String aktNavn;
+	private int start;
+
+	Aktivitet(String hva, int kl){
+		aktNavn = hva;
+		start = kl;
+	}
+
+}
+
+class Ukedag{
+	private Aktivitet[] aktiviteter = new Aktivitet[24];
+	private String dag;
+
+	Ukedag(String dag){
+		this.dag = dag;
+	}
+
+	void settInn(String hva, int kl){
+		if(aktiviteter[kl] == null){
+			aktivteter[kl] = new Aktivitet(hva, kl);
+		} else {
+			System.out.println("Tidspunktet er opptatt.");
+		}
+	}
+
+	public int tidligste(){
+		for(int i = 0; i < aktiviteter.length; i++){
+			if(aktiviteter[i] != null){
+				return i;
+			} 
+		}
+		return -1;
+	}
+
+	public int seneste(){
+		for(int i = 23; i >= 0; i--){
+			if(aktiviteter[i] != null){
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	public int antall(){
+		int antallAktiviteter = 0;
+
+		for(int i = 0; i < aktiviteter.length; i++){
+			if(aktiviteter[i] != null){
+				antallAktiviteter += 1;
+			}
+		}
+
+		return antallAktiviteter;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

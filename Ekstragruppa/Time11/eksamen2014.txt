@@ -8,6 +8,14 @@ class Aktivitet{
 		start = kl;
 	}
 
+	public void skrivUt(){
+		System.out.println("Kl " + start + ": " + aktNavn);
+	}
+
+	public String hentAktNavn(){
+		return aktNavn;
+	}
+
 }
 
 class Ukedag{
@@ -16,6 +24,27 @@ class Ukedag{
 
 	Ukedag(String dag){
 		this.dag = dag;
+	}
+
+	public HashMap hentUlikeAktiviteter{
+		HashMap<String, String> ulikeAktiviter = new HashMap<>();
+		
+		for(int i = 0; i < aktiviteter.length; i++){
+			if(aktiviteter[i] != null){
+				String aktNavn = aktiviteter[i].hentAktNavn();
+				ulikeAktiviteter.put(aktNavn, aktNavn);
+			}
+		}
+		return ulikeAktiviteter;
+	}
+
+	void skrivUt(){
+		System.out.println(dag);
+		for(int i = tidligste(); i < seneste(); i++){
+			if(aktiviteter[i] != null){
+				aktiviteter[i].skrivUt();
+			}
+		}
 	}
 
 	void settInn(String hva, int kl){
@@ -56,7 +85,192 @@ class Ukedag{
 		return antallAktiviteter;
 	}
 
+	// Jeg antar at alle andre metoder er korrekte.
+	public void settInnLedig(String hva){
+		if(antall() == 24){
+			Sop("Det er ingen ledige timer denne dagen!");
+		} 
+		else if(antall() == 0){
+			settInn(hva, 12);
+		}
+		else {
+			for(int i = tidligste(); i < 24; i++){
+				if(aktiviteter[i] == null){
+					settInn(hva, i);
+					return;
+				}
+			}
+
+			settInn(hva, tidligste() -1);
+		}
+	}
+
+	public void settInnLeding(String hva){
+		if(antall() == 24){
+			Sop("Det er ingen ledig time");
+			return;
+		}
+
+		if(antall() == 0){
+			settInn(hva, 12);
+			return;
+		}
+
+		for(int i = tidligste(); i < seneste(); i++){
+			if(aktiviteter[i] == null){
+				settInn(hva, i);
+				return;
+			}
+		}
+
+		if(seneste() != 23){
+			settInn(seneste() +1);
+			return;
+		}
+
+		if(tidligste() != 0){
+			settInn(tidligste() -1);
+		}
+
+	}
+
 }
+
+public class Ukeplan{
+	
+	String navn;
+	Ukedag[] ukedager = new Ukedag[7];
+	String[] navnUkedager = {"Mandag", "Tirsdag", "Onsdag", ..., "Søndag"};
+
+	Ukeplan(String hvem){
+		navn = hvem;
+		/*
+		ukedag[0] = new Ukedag("Mandag");
+		ukedag[1] = new Ukedag("Tirsdag");
+		...
+		ukedag[6] = new Ukedag("Søndag"); */
+
+		for(int i = 0; i < 7; i++){
+			ukedager[i] = new Ukedag(navnUkedager[i]);
+		}
+
+	}
+
+	public HashMap hentUlikeAktiviteter(){
+		HashMap<String,String> ulikeAktiviteter = new HashMap<>();
+		
+		for(Ukedag dag : ukedager){
+			HashMap<String,String> ukedagAkt = dag.hentUlikeAktiviteter();
+			for(String s : ukedagAkt.ketSet()){
+				ulikeAktiviteter.put(s, s);
+			}
+		}
+
+		return ulikeAktiviteter;
+
+	}
+
+	public void skrivUt(){
+		System.out.println("Ukeplan for " + navn);
+		for(int i = 0; i < 7; i++){
+			ukedager[i].skrivUt();
+		}
+
+	}
+
+	public Ukedag travleste(){
+		Ukedag hoyeste = ukedager[0];
+
+		for(int i = 0; i < ukedager.length; i++){
+			if(hoyeste.antall() < ukedager[i].antall()){
+				hoyeste = ukedager[i];
+			}
+		}
+
+		return hoyeste;
+
+	}
+
+}
+
+import java.util.ArrayList;
+class Familie{
+	
+	ArrayList<Ukeplan> ukeplaner = new ArrayList<Ukeplan>();
+
+
+	public void skrivAktiviteter(){
+		HashMap<String,String> ulike = new HashMap<>();
+		for(Ukeplan ukeplan : ukeplaner){
+			HashMap<String,String> ulikeaktiviter = ukeplan.hentUlikeAktiviteter();
+			for(String s : ulikeaktiviteter.keySet()){
+				ukeplaner.put(s,s);
+			}
+		}
+
+
+		for(String akt : ulike.keySet()){
+			System.out.println(akt);
+		}
+
+	}
+
+
+
+}
+
+
+
+
+
+
+
+//Start
+int t3 = 0;
+int t2 = 0;
+int t1 = 0;
+int antall = 0;
+
+for(int k = 1; k < 7; k++){
+	t1 = k;
+	for(int j = 1; j < 7; j++){
+		t2 = j;	
+		for(int i = 1; i < 7; i++){
+			t3 = i;
+
+			System.out.println(t1 + "-" + t2 + "-" + t3)
+
+			if(t1 == t2 || t1 == t3 || t2 == t3){
+				antall ++;
+			}
+		}
+	}
+}
+
+System.out.println("antall med minst to like: " + antall);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
